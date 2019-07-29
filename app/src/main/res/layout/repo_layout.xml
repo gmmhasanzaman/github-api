@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:elevation="10dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp"
+        >
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            >
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Repo Name: "
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:gravity="left"
+                    />
+                <TextView
+                    android:id="@+id/repoNameId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#000"
+                    android:textStyle="bold"
+                    />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Repo Description: "
+                    android:textSize="17sp"
+                    android:textColor="#077C0B"
+                    android:gravity="left"
+                    />
+                <TextView
+                    android:id="@+id/repoDesId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#077C0B"
+                    android:textStyle="bold"
+                    />
+            </TableRow>
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Repo Language: "
+                    android:textSize="17sp"
+                    android:textColor="#25065C"
+                    android:gravity="left"
+
+                    />
+                <TextView
+                    android:id="@+id/repoLanguageId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="17sp"
+                    android:textColor="#25065C"
+                    android:textStyle="bold"
+                    />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
