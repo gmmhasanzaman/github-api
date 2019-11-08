@@ -37,10 +37,10 @@ public class RepoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_repo);
 
-        usernameTV = findViewById(R.id.repoUsernameTV);
-        repoSizeTV = findViewById(R.id.repoSizeTV);
-        recyclerView = findViewById(R.id.repoRV);
 
+
+        initViews();
+        initRecyclerView();
         Bundle extras = getIntent().getExtras();
         if (extras != null){
             username = extras.getString("username");
@@ -48,14 +48,23 @@ public class RepoActivity extends AppCompatActivity {
         }
 
 
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new RepoAdapter(this,gitHubRepoList);
-        recyclerView.setAdapter(adapter);
-
         loadRepositories();
 
     }
+
+    private void initRecyclerView() {
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        adapter = new RepoAdapter(this,gitHubRepoList);
+        recyclerView.setAdapter(adapter);
+    }
+
+    private void initViews() {
+
+        usernameTV = findViewById(R.id.repoUsernameTV);
+        repoSizeTV = findViewById(R.id.repoSizeTV);
+        recyclerView = findViewById(R.id.repoRV);
+    }
+
 
     public void  loadRepositories(){
 

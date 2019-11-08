@@ -20,6 +20,7 @@ import com.squareup.picasso.Picasso;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import retrofit2.Retrofit;
 
 public class UserActivity extends AppCompatActivity {
 
@@ -28,21 +29,15 @@ public class UserActivity extends AppCompatActivity {
     Button ownRepoBtn;
     private String username;
 
-    Bundle extras;
+    private Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user);
 
-        avatarIV = findViewById(R.id.avatarIV);
-        usernameTV = findViewById(R.id.usernameTV);
-        followersTV = findViewById(R.id.followersTV);
-        followingTv = findViewById(R.id.followingTV);
-        loginTV = findViewById(R.id.loginTV);
-        emailTV = findViewById(R.id.emailTV);
+        initViews();
 
-        ownRepoBtn = findViewById(R.id.ownRepoBtn);
 
         extras = getIntent().getExtras();
         username = extras.getString("username");
@@ -57,9 +52,21 @@ public class UserActivity extends AppCompatActivity {
         loadData();
     }
 
+    private void initViews() {
+
+        avatarIV = findViewById(R.id.avatarIV);
+        usernameTV = findViewById(R.id.usernameTV);
+        followersTV = findViewById(R.id.followersTV);
+        followingTv = findViewById(R.id.followingTV);
+        loginTV = findViewById(R.id.loginTV);
+        emailTV = findViewById(R.id.emailTV);
+        ownRepoBtn = findViewById(R.id.ownRepoBtn);
+    }
+
     public void loadData(){
 
-        GitHubUserEndPoints apiService = APIClient.getClient().create(GitHubUserEndPoints.class);
+        Retrofit retrofit = APIClient.getClient();
+        GitHubUserEndPoints apiService = retrofit.create(GitHubUserEndPoints.class);
         Call<GitHubUser> gitHubUserCall = apiService.getUser(username);
         gitHubUserCall.enqueue(new Callback<GitHubUser>() {
             @Override

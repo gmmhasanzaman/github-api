@@ -5,8 +5,8 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
 
-    public static final String BASE_URL = "https://api.github.com";
-    private static Retrofit retrofit = null;
+    private static final String BASE_URL = "https://api.github.com";
+    private static Retrofit retrofit ;
 
     public static Retrofit getClient(){
         if (retrofit == null){
